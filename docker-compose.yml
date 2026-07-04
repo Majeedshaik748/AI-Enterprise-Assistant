@@ -40,7 +40,7 @@ services:
       context: ./frontend
     restart: unless-stopped
     environment:
-      NEXT_PUBLIC_API_URL: http://localhost:8000
+      NEXT_PUBLIC_API_URL: https://redesigned-xylophone-q7g4wrq4q7rpc9vjj-8000.app.github.dev
     depends_on:
       - backend
     ports:
