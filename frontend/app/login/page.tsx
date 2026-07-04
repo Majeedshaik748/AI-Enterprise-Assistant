@@ -25,9 +25,16 @@ export default function LoginPage() {
       localStorage.setItem("access_token", data.access_token);
       localStorage.setItem("refresh_token", data.refresh_token);
       router.push("/dashboard");
-    } catch (err: any) {
-      setError(err?.response?.data?.detail || "Something went wrong. Check your details and try again.");
-    } finally {
+    { catch (err: any) {
+  console.log("LOGIN ERROR:", err);
+  console.log("RESPONSE:", err?.response?.data);
+
+  setError(
+    JSON.stringify(err?.response?.data) ||
+    err?.message ||
+    "Unknown error"
+  );
+} finally {
       setLoading(false);
     }
   }
