@@ -22,9 +22,13 @@ export default function LoginPage() {
         await auth.register(email, password, fullName);
       }
       const { data } = await auth.login(email, password);
-      localStorage.setItem("access_token", data.access_token);
-      localStorage.setItem("refresh_token", data.refresh_token);
-      router.push("/dashboard");
+
+console.log("LOGIN SUCCESS", data);
+
+localStorage.setItem("access_token", data.access_token);
+localStorage.setItem("refresh_token", data.refresh_token);
+
+window.location.href = "/dashboard";
     { catch (err: any) {
   console.log("LOGIN ERROR:", err);
   console.log("RESPONSE:", err?.response?.data);
